@@ -3,12 +3,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='django-metatags',
-    version="0.0",
-    author='Steve Yeago',
-    author_email='subsume@gmail.com',
-    description='Managing metatags in Django',
-    url='http://github.com/subsume/django-metatags',
+    name='django-site-metatags',
+    version="0.1",
+    author='Eli Dickinson',
+    author_email='eli@industrydive.com',
+    description='Managing metatags and other SEO in Django, per-site',
+    url='http://github.com/industrydive/django-site-metatags',
     packages=find_packages(),
     include_package_data=True,
     classifiers=[
