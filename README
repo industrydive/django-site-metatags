@@ -1,14 +1,17 @@
-This is my take on solving the awkward relationship between 
-Django Templates and Metatag/title information.
+This allows you to specify Titles and Meta tags to override the normal tags on given pages
 
-My approach staunchly defends user simplicity. The down-side (if you 
-want to call it that) is that there is template logic in the admin. 
+Based on https://github.com/subsume/django-metatags 
+
+The main difference is that this fork expects to be used with the Sites framework. There
+are some additional minor bugfixes and cleanup in the admin.
 
 INSTALL:
 
-1) Blah blah blah INSTALLED_APPS, Syncdb.
+1) add metatags to INSTALLED_APPS, Syncdb or "migrate" using South.
 
-2) Add some URLMetatags model instances
+2) Create some URLMetatags model instances via the admin
 
 3) Load the "metatag_tags" templatetag in your base tag and call {% metatag_populate %}
+   This will create a metatag dict in the current context that you can access like:
+   <title>{{ metatag.title|default:"default page title"}}</title>
 
