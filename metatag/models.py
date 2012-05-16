@@ -15,6 +15,7 @@ class URLMetatags(models.Model):
 
 	class Meta:
 		verbose_name_plural = "URL Metatags"
+		unique_together = ('site','url')
 
 	def __unicode__(self):
 		return u"Metatags for %s" % self.url
