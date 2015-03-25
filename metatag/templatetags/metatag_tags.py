@@ -11,7 +11,10 @@ register = template.Library()
 
 class URLMetatagsNode(template.Node):
     def render(self, context):
-        request = context['request']
+        # Sometimes this may be a Context, not a RequestContext
+        request = context.get('request', None)
+        if not request:
+            return ''
         try:
             url = resolve_to_name(request.path)
             meta = URLMetatags.objects.get(Q(url=url)|Q(url=request.path))
