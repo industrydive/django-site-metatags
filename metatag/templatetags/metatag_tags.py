@@ -1,7 +1,6 @@
 from django import template
 from django.db.models import Q
 from django.template import Template
-from django.core.urlresolvers import resolve
 
 from metatag.models import URLMetatags
 
@@ -21,7 +20,11 @@ class URLMetatagsNode(template.Node):
 
         meta_dict = {}
 
-        for key in URLMetatags._meta.get_all_field_names():
+        # taken from https://docs.djangoproject.com/en/1.11/ref/models/meta/#migrating-old-meta-api
+        # really we could just use a hardcoded list of strings
+        all_field_names = [f.name for f in URLMetatags._meta.get_fields()]
+
+        for key in all_field_names:
             att = getattr(meta,key,None)
             if att:
                 t = Template(att)

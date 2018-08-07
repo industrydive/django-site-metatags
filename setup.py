@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-site-metatags',
-    version="0.1",
+    version="0.2",
     author='Eli Dickinson',
     author_email='eli@industrydive.com',
     description='Managing metatags and other SEO in Django, per-site',
