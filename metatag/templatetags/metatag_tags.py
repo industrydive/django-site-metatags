@@ -1,8 +1,6 @@
 from django import template
 from django.db.models import Q
 from django.template import Template
-from django.core.urlresolvers import resolve
-from itertools import chain
 
 from metatag.models import URLMetatags
 
