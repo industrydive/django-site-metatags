@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+import six
+
 list_of_subclasses = []
 
 
@@ -8,5 +11,5 @@ class MetaMetatag(type):
             list_of_subclasses.append(cls)
 
 
-class Metatag(type):
-    __metaclass__ = MetaMetatag
+class Metatag(six.with_metaclass(MetaMetatag, type)):
+    pass

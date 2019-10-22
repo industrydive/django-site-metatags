@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # http://djangosnippets.org/snippets/1378/
 
 from django.core.urlresolvers import RegexURLResolver, RegexURLPattern, Resolver404, get_resolver
@@ -14,7 +15,7 @@ def _pattern_resolve_to_name(self, path):
         elif hasattr(self, '_callback_str'):
             name = self._callback_str
         else:
-            name = '%s.%s' % (self.callback.__module__, self.callback.func_name)
+            name = '%s.%s' % (self.callback.__module__, self.callback.__name__)
         return name
 
 

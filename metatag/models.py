@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from django.db import models
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
