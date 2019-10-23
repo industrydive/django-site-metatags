@@ -1,20 +1,23 @@
+from __future__ import absolute_import
 # http://djangosnippets.org/snippets/1378/
 
 from django.core.urlresolvers import RegexURLResolver, RegexURLPattern, Resolver404, get_resolver
 
 __all__ = ('resolve_to_name',)
 
+
 def _pattern_resolve_to_name(self, path):
     match = self.regex.search(path)
     if match:
-        name = ""
+        name = ''
         if self.name:
             name = self.name
         elif hasattr(self, '_callback_str'):
             name = self._callback_str
         else:
-            name = "%s.%s" % (self.callback.__module__, self.callback.func_name)
+            name = '%s.%s' % (self.callback.__module__, self.callback.__name__)
         return name
+
 
 def _resolver_resolve_to_name(self, path):
     tried = []
@@ -30,7 +33,7 @@ def _resolver_resolve_to_name(self, path):
                 if name:
                     return name
                 tried.append(pattern.regex.pattern)
-	#raise Resolver404, {'tried': tried, 'path': new_path}
+    # raise Resolver404, {'tried': tried, 'path': new_path}
 
 
 # here goes monkeypatching
